@@ -7,11 +7,11 @@ import "./styles.css";
 function App() {
   const [todos, setTodos] = useState([]);
   const handleAddTodo = (todoInput) => {
-    setTodos([...todos, todoInput]);
+    setTodos([...todos, { id: Date.now(), content: todoInput, type: "todo" }]);
   };
   return (
     <div className="container">
-      <Title>Title</Title>
+      <Title>Simple Kanban Board</Title>
       <Input onSubmit={handleAddTodo} />
       <Lane todos={todos} setTodos={setTodos} />
     </div>
